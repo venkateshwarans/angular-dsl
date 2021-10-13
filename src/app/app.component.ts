@@ -123,7 +123,7 @@ export class AppComponent {
           {
             exists: [
               {
-                var: `${this.secondQuestionId}.${this.responseVariable}.option.value`,
+                var: `${this.secondQuestionId}.${this.responseVariable}.value`,
                 type: 'responseDeclaration',
 
               },
@@ -140,7 +140,7 @@ export class AppComponent {
          {
           not_exists: [
              {
-               var: `${this.secondQuestionId}.${this.responseVariable}.option.value`,
+               var: `${this.secondQuestionId}.${this.responseVariable}.value`,
                type: 'responseDeclaration'
              },
              this.secondTargetOption
