@@ -1,20 +1,131 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div style="display: flex;border: 1px solid #eee;box-shadow: 1px 1px 1px 1px #eee;padding: 20px;">
+  <div class="left" style="flex: 1;border-right: 1px solid #eee;">
+    <h2>The matter that has both the properties of particles as well as waves is known as?</h2>
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="response1" (change)="userResponseHandler($event)">
+      <mat-radio-button value="0">particle duality</mat-radio-button> <br><br>
+      <mat-radio-button value="1">wave theory</mat-radio-button> <br>
+      <br>
+      <mat-radio-button value="2">entanglement</mat-radio-button> <br><br>
+      <mat-radio-button value="3">superposition</mat-radio-button> <br>
+    </mat-radio-group>
+    <br>
 
+    <select (change)="conditionHandler($event)">
+      <option>Select Condition</option>
+      <option value="eq">Equal to</option>
+      <option value="ne">Not equal</option>
+    </select>
+
+    <select (change)="optionHandler($event)" style="margin: 20px;">
+      <option>Select option</option>
+      <option value="0">Option 1</option>
+      <option value="1">Option 2</option>
+      <option value="2">Option 3</option>
+      <option value="4">Option 4</option>
+    </select>
+
+    <br>
+    <br>
+    <button (click)="buildCondition()">Save</button>
+  </div>
+  <div class="right" style="flex: 1;margin-left: 20px;">
+    <h3>Precondition</h3>
+    <pre>
+      <p>{{rule | json}}</p>
+    </pre>
+    <h3>Data</h3>
+    <pre>
+      <p>{{firstData | json}}</p>
+    </pre>
+    <h3>Validation</h3>
+    <p style="font-size: 20px; font-weight: bold;">{{firstResult}}</p>
+  </div>
+</div>
+
+<br><br><br>
+<div style="display: flex;border: 1px solid #eee;box-shadow: 1px 1px 1px 1px #eee;padding: 20px;">
+  <div class="left" style="flex: 1;border-right: 1px solid #eee;">
+    <h2>Which of the following integers are multiples of both 2 and 3</h2>
+    <mat-selection-list #response2 (selectionChange)="responseTwoHandler($event)">
+      <mat-list-option [checkboxPosition]="before" [value]="0">8</mat-list-option>
+      <mat-list-option [checkboxPosition]="before"  [value]="1">9</mat-list-option>
+      <mat-list-option [checkboxPosition]="before" [value]="2">10</mat-list-option>
+      <mat-list-option [checkboxPosition]="before" [value]="3">11</mat-list-option>
+    </mat-selection-list>
+
+    <select (change)="secondConditionHandler($event)">
+      <option>Select Condition</option>
+      <option value="eq">Equal to</option>
+      <option value="ne">Not equal</option>
+    </select>
+
+    <mat-form-field style="margin-left: 20px;">
+      <mat-label>Select options</mat-label>
+      <mat-select multiple (selectionChange)="secondOptionHandler($event)">
+        <mat-option [value]="0">Option 1</mat-option>
+        <mat-option [value]="1">Option 2</mat-option>
+        <mat-option [value]="2">Option 3</mat-option>
+        <mat-option [value]="3">Option 4</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+    <button (click)="buildSecondCondition()">Save</button>
+
+    <br><br>
+  </div>
+  <div class="right" style="flex: 1;margin-left: 20px;">
+    <h3>Precondition</h3>
+    <pre>
+      <p>{{secondRule | json}}</p>
+    </pre>
+    <h3>Data</h3>
+    <pre>
+      <p>{{secondData | json}}</p>
+    </pre>
+    <h3>Validation</h3>
+    <p style="font-size: 20px; font-weight: bold;">{{secondResult}}</p>
+  </div>
+</div>
+
+<br><br><br>
+<div style="display: flex;border: 1px solid #eee;box-shadow: 1px 1px 1px 1px #eee;padding: 20px;">
+  <div class="left" style="flex: 1;border-right: 1px solid #eee;">
+    <h2>A charged particle in an electromagnetic field experience a force called</h2>
+    <mat-selection-list #response2 (selectionChange)="responseThreeHandler($event)">
+      <mat-list-option [checkboxPosition]="before" [value]="25">Gravitational force</mat-list-option>
+      <mat-list-option [checkboxPosition]="before"  [value]="25">Lorentz force</mat-list-option>
+      <mat-list-option [checkboxPosition]="before" [value]="25">Frictional force</mat-list-option>
+      <mat-list-option [checkboxPosition]="before" [value]="25">Restoring force</mat-list-option>
+    </mat-selection-list>
+    <select (change)="thirdConditionHandler($event)">
+      <option>Select Condition</option>
+      <option value="gt">Score greater than</option>
+      <option value="lt">Score less than</option>
+    </select>
+
+    <mat-form-field style="margin-left: 20px;">
+      <mat-label>Select options</mat-label>
+      <mat-select (selectionChange)="thirdOptionHandler($event)">
+        <mat-option [value]="33">33</mat-option>
+        <mat-option [value]="50">50</mat-option>
+        <mat-option [value]="75">75</mat-option>
+        <mat-option [value]="100">100</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br><br>
+    <button (click)="buildThirdCondition()">Save</button>
+    <br><br>
+  </div>
+  <div class="right" style="flex: 1;margin-left: 20px;">
+    <h3>Precondition</h3>
+    <pre>
+      <p>{{thirdRule | json}}</p>
+    </pre>
+    <h3>Data</h3>
+    <pre>
+      <p>{{thirdData | json}}</p>
+    </pre>
+    <h3>Validation</h3>
+    <p style="font-size: 20px; font-weight: bold;">{{thirdResult}}</p>
+  </div>
+</div>
